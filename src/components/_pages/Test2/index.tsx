@@ -75,7 +75,7 @@ const FormAndTablePage: FC = () => {
         }
     }, [users, isInitialLoad]);
 
-    const onFinish = (values: any) => {
+    const onFinish = (values: Record<string, any>) => {
         const phoneNumber = `${values.phoneCode || ''}${values.phoneNum || ''}`;
         
         const userData: Omit<User, 'id'> = {
@@ -168,18 +168,17 @@ const FormAndTablePage: FC = () => {
     };
 
     // Translates static data values for display.
-    const translateValue = (type: 'prefix' | 'gender' | 'nationality', value: string) => {
-        const translations: { [key: string]: { [lang: string]: string } } = {
-        
-        'Male': { en: 'Male', th: 'ชาย' },
-        'Female': { en: 'Female', th: 'หญิง' },
-        'Unspecified': { en: 'Unspecified', th: 'ไม่ระบุ' },
-        
-        'Thai': { en: 'Thai', th: 'ไทย' },
-        'American': { en: 'American', th: 'อเมริกัน' },
-        'French': { en: 'French', th: 'ฝรั่งเศส' }
+    const translateValue = (type: 'gender' | 'nationality', value: string) => {
+        const translations: Record<string, Record<string, string>> = {
+            'Male': { en: 'Male', th: 'ชาย' },
+            'Female': { en: 'Female', th: 'หญิง' },
+            'Unspecified': { en: 'Unspecified', th: 'ไม่ระบุ' },
+            'Thai': { en: 'Thai', th: 'ไทย' },
+            'American': { en: 'American', th: 'อเมริกัน' },
+            'French': { en: 'French', th: 'ฝรั่งเศส' }
         };
-        return translations[value] ? translations[value][i18n.language as 'en' | 'th'] || value : value;
+        const lang = i18n.language;
+        return translations[value]?.[lang] || value;
     };
 
     const columns: TableProps<User>['columns'] = [
@@ -362,8 +361,8 @@ const FormAndTablePage: FC = () => {
                         indeterminate={selectedRowKeys.length > 0 && selectedRowKeys.length < users.length}
                         checked={users.length > 0 && selectedRowKeys.length === users.length}
                         onChange={(e) => {
-                        const allRowKeys = e.target.checked ? users.map((user:any) => user.id) : [];
-                        setSelectedRowKeys(allRowKeys);
+                            const allRowKeys = e.target.checked ? users.map((user) => user.id) : [];
+                            setSelectedRowKeys(allRowKeys);
                         }}
                     >
                         {t('select_all')}
