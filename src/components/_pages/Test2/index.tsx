@@ -40,6 +40,7 @@ const FormAndTablePage: FC = () => {
     const [form] = Form.useForm();
     const [editingUser, setEditingUser] = useState<User | null>(null);
     const [selectedRowKeys, setSelectedRowKeys] = useState<React.Key[]>([]);
+    const [isInitialLoad, setIsInitialLoad] = useState(true);
 
     const antdLocale = i18n.language === 'th' ? thTH : enUS;
 
@@ -49,42 +50,49 @@ const FormAndTablePage: FC = () => {
             try {
                 const storedUsers = localStorage.getItem('users');
                 if (storedUsers && storedUsers !== 'undefined') {
-                const parsedUsers = JSON.parse(storedUsers);
-                if (Array.isArray(parsedUsers) && parsedUsers.length > 0) {
-                    dispatch(setUsers(parsedUsers));
-                }
+                    const parsedUsers = JSON.parse(storedUsers);
+                    if (Array.isArray(parsedUsers)) {
+                        dispatch(setUsers(parsedUsers));
+                    }
                 }
             } catch (error) {
                 console.error("Failed to load users from local storage", error);
             }
         }
-    }, []);
+        setIsInitialLoad(false);
+    }, [dispatch]);
 
     // Saves users to local storage whenever the list changes.
     useEffect(() => {
-        if (typeof window !== 'undefined') {
-            if (users.length > 0 || localStorage.getItem('users') !== '[]') {
+        if (!isInitialLoad) {
+            if (typeof window !== 'undefined') {
                 try {
-                localStorage.setItem('users', JSON.stringify(users));
+                    localStorage.setItem('users', JSON.stringify(users));
                 } catch (error) {
-                console.error("Failed to save users to local storage", error);
+                    console.error("Failed to save users to local storage", error);
                 }
             }
         }
-    }, [users]);
+    }, [users, isInitialLoad]);
 
     const onFinish = (values: any) => {
         const phoneNumber = `${values.phoneCode || ''}${values.phoneNum || ''}`;
-        const { phoneCode, phoneNum, ...restValues } = values;
         
-        const userData = {
-        ...restValues,
-        phoneNumber: phoneNumber,
-        birthDate: values.birthDate ? values.birthDate.format('YYYY-MM-DD') : '',
+        const userData: Omit<User, 'id'> = {
+            prefix: values.prefix,
+            firstName: values.firstName,
+            lastName: values.lastName,
+            birthDate: values.birthDate ? values.birthDate.format('YYYY-MM-DD') : '',
+            nationality: values.nationality,
+            idCardNumber: values.idCardNumber,
+            gender: values.gender,
+            phoneNumber: phoneNumber,
+            passportNumber: values.passportNumber,
+            expectedSalary: values.expectedSalary,
         };
         
         if (editingUser) {
-            dispatch(editUser({ ...editingUser, ...userData }));
+            dispatch(editUser({ id: editingUser.id, ...userData }));
             Modal.success({ content: t('user_updated_success'), okText: t('ok'), });
         } else {
             dispatch(addUser(userData));
