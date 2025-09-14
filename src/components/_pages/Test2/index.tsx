@@ -32,6 +32,20 @@ import IdCardInput from '../../_core/InputCardID/IdCardInput';
 const { Title } = Typography;
 const { Option } = Select;
 
+interface FormValues {
+    prefix: string;
+    firstName: string;
+    lastName: string;
+    birthDate?: dayjs.Dayjs;
+    nationality: string;
+    idCardNumber?: string;
+    gender: string;
+    phoneCode: string;
+    phoneNum: string;
+    passportNumber?: string;
+    expectedSalary: string;
+  }
+
 const FormAndTablePage: FC = () => {
     const { t, i18n } = useTranslation();
     const dispatch: AppDispatch = useDispatch();
@@ -75,7 +89,7 @@ const FormAndTablePage: FC = () => {
         }
     }, [users, isInitialLoad]);
 
-    const onFinish = (values: Record<string, any>) => {
+    const onFinish = (values: FormValues) => {
         const phoneNumber = `${values.phoneCode || ''}${values.phoneNum || ''}`;
         
         const userData: Omit<User, 'id'> = {
@@ -88,7 +102,7 @@ const FormAndTablePage: FC = () => {
             gender: values.gender,
             phoneNumber: phoneNumber,
             passportNumber: values.passportNumber,
-            expectedSalary: values.expectedSalary,
+            expectedSalary: Number(values.expectedSalary),
         };
         
         if (editingUser) {
