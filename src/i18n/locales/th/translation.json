@@ -1,0 +1,49 @@
+{
+    "test1_title": "แบบทดสอบที่ 1",
+    "test1_subtitle": "การจัดการหน้าเว็บ",
+    "test2_title": "แบบทดสอบ 2",
+    "test2_subtitle": "การจัดการหน้าเว็บฟอร์ม",
+    "page_1_title": "การจัดการหน้าเว็บ",
+    "move_shape": "เลื่อนรูปแบบ",
+    "move_position": "เปลี่ยนตำแหน่ง",
+    "page_2_title": "การจัดการหน้าเว็บฟอร์ม",
+
+    "home": "หน้าหลัก",
+
+    "prefix": "คำนำหน้า", "mr": "นาย", "mrs": "นาง", "ms": "นางสาว",
+    "firstname": "ชื่อจริง", "lastname": "นามสกุล",
+    "birthdate": "วันเกิด", "nationality": "สัญชาติ",
+    "thai": "ไทย", "american": "อเมริกัน", "french": "ฝรั่งเศส",
+    "id_card_number": "เลขบัตรประชาชน", "gender": "เพศ",
+    "male": "ชาย", "female": "หญิง", "unspecified": "ไม่ระบุ",
+    "phone_number": "หมายเลขโทรศัพท์มือถือ", "passport_number": "หนังสือเดินทาง",
+    "expected_salary": "เงินเดือนที่คาดหวัง",
+
+    "submit": "ส่งข้อมูล", "reset": "ล้างข้อมูล", "update": "อัปเดต",
+
+    "select_all": "เลือกทั้งหมด", "delete": "ลบข้อมูล", "edit": "แก้ไขข้อมูล",
+    "table_name": "ชื่อ", "table_gender": "เพศ", "table_phone": "หมายเลขโทรศัพท์มือถือ",
+    "table_nationality": "สัญชาติ", "table_manage": "จัดการ",
+    "btn_prev": "ก่อนหน้า", "btn_next": "ถัดไป",
+    "select_birthdate": "เดือน/วัน/ปี", "select_nationality": "-- กรุณาเลือก --",
+
+    "confirm_deletion": "ยืนยันการลบ",
+    "delete_user_confirmation": "คุณแน่ใจหรือไม่ที่จะลบผู้ใช้นี้?",
+    "delete_items": "คุณต้องการลบรายการนี้ใช่หรือไม่?",
+    "delete_warning": "การดำเนินการนี้ไม่สามารถยกเลิกได้",
+    "user_updated_success": "อัปเดตข้อมูลผู้ใช้เรียบร้อยแล้ว!",
+    "user_added_success": "เพิ่มข้อมูลผู้ใช้เรียบร้อยแล้ว!",
+
+    "ok": "ตกลง",
+    "cancel": "ยกเลิก",
+
+    "prefix_required": "กรุณาเลือกคำนำหน้า",
+    "firstname_required": "กรุณากรอกชื่อ",
+    "lastname_required": "กรุณากรอกนามสกุล",
+    "birthdate_required": "กรุณาเลือกวันเกิด", 
+    "nationality_required": "กรุณาเลือกสัญชาติ",
+    "gender_required": "กรุณาเลือกเพศ",
+    "phone_code_required": "กรุณาเลือกรหัสประเทศ",
+    "phone_number_required": "กรุณากรอกเบอร์โทรศัพท์",
+    "expected_salary_required": "กรุณากรอกเงินเดือนที่คาดหวัง"
+  }

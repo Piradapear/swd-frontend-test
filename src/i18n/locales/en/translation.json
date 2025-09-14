@@ -1,0 +1,49 @@
+{
+    "test1_title": "Test 1",
+    "test1_subtitle": "Layout & Style",
+    "test2_title": "Test 2",
+    "test2_subtitle": "Form & Table",
+    "page_1_title": "Layout & Style",
+    "move_shape": "Move shape",
+    "move_position": "Move position",
+    "page_2_title": "Form & Table",
+
+    "home": "Home",
+
+    "prefix": "Title", "mr": "Mr.", "mrs": "Mrs.", "ms": "Ms.",
+    "firstname": "Firstname", "lastname": "Lastname",
+    "birthdate": "Birthday", "nationality": "Nationality",
+    "thai": "Thai", "american": "American", "french": "French",
+    "id_card_number": "Citizen ID", "gender": "Gender",
+    "male": "Male", "female": "Female", "unspecified": "Unsex",
+    "phone_number": "Mobile Phone", "passport_number": "Passport No.",
+    "expected_salary": "Expected Salary",
+
+    "submit": "SUBMIT", "reset": "RESET", "update": "UPDATE",
+
+    "select_all": "Select All", "delete": "DELETE", "edit": "EDIT",
+    "table_name": "Name", "table_gender": "Gender", "table_phone": "Mobile Phone",
+    "table_nationality": "Nationality", "table_manage": "MANAGE",
+    "btn_prev": "PREV", "btn_next": "NEXT",
+    "select_birthdate": "mm/dd/yy", "select_nationality": "-- Please Select --",
+
+    "confirm_deletion": "Confirm Deletion",
+    "delete_user_confirmation": "Are you sure you want to delete this user?",
+    "delete_items": "Delete selected items?",
+    "delete_warning": "This action cannot be undone.",
+    "user_updated_success": "User updated successfully!",
+    "user_added_success": "User added successfully!",
+
+    "ok": "OK",
+    "cancel": "Cancel",
+
+    "prefix_required": "Please select prefix",
+    "firstname_required": "Please enter first name",
+    "lastname_required": "Please enter last name", 
+    "birthdate_required": "Please select birth date",
+    "nationality_required": "Please select nationality",
+    "gender_required": "Please select gender",
+    "phone_code_required": "Please select phone code",
+    "phone_number_required": "Please enter phone number",
+    "expected_salary_required": "Please enter expected salary"
+  }
